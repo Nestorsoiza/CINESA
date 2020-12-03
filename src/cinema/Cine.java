@@ -58,7 +58,17 @@ public class Cine {
 		return false;
 	}
 	public boolean haySitioButaca(int fila, char letra) {
-		return getAsientos(fila, letra).ocupado();
+		return asientos[fila][ letra].ocupado();
+	}
+	public boolean sePuedeSentar(Espectador e) {
+		return e.tieneDinero(precio) && e.tieneEdad(pelicula.getEdadMinima());
+
+	}
+	public void sentar(int fila, char letra, Espectador e) {
+		return getAsientos().setEspectador(e);
+	}
+	public Asiento getAsiento(int fila, char letra) {
+		return asientos[asientos.length - fila - 1][letra - 'A'];
 	}
 	}
-}
+
